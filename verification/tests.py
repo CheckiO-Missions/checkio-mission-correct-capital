@@ -52,6 +52,14 @@ TESTS = {
             "answer": True
         },
         {
+            "input": ["NORMALLL"],
+            "answer": True
+        },
+        {
+            "input": ["USA"],
+            "answer": True
+        },
+        {
             "input": ["n"],
             "answer": True
         }
