@@ -1,25 +1,25 @@
 <p>
     You are given a word in which letters can be in different cases. Your task is to check whether the case was
-    used correctly in the line. If everything is correct - return True, if there are errors - return False.
+    used correctly in the line. If everything is correct - return <b>{% if is_js %}t{% else %}T{% endif %}rue</b>, if there are errors - return return <b>{% if is_js %}f{% else %}F{% endif %}alse</b>.
 </p>
 <p>
     Examples of the correct use of cases:
 </p>
 <p>
-    <li>All characters in the string are in uppercase. For example, "CHECKIO"</li>
-    <li>None of the characters are in uppercase. For example, "checkio"</li>
-    <li>Only the first character is in uppercase. For example, "Checkio"</li>
+    <li>All characters in the string are in uppercase. For example, "CHECKIO";</li>
+    <li>None of the characters are in uppercase. For example, "checkio";</li>
+    <li>Only the first character is in uppercase. For example, "Checkio".</li>
 </p>
 <p>
-    <strong>Input: </strong>String.
+    <strong>Input:</strong> String.
 
 <p>
-    <strong>Output: </strong>Bool.
+    <strong>Output:</strong> {% if is_js %}Boolean{% else %}Bool{% endif %}.
 </p>
 
 <div class="for_info_only">
     <p>
-        <strong>Example:</strong>
+        <strong>Examples:</strong>
     </p>
 <pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
 </div>

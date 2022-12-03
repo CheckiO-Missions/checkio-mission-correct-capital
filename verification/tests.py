@@ -12,56 +12,56 @@ TESTS = {
     "Basics": [
         {
             "input": ["Checkio"],
-            "answer": True
+            "answer": True,
         },
         {
             "input": ["CheCkio"],
-            "answer": False
+            "answer": False,
         },
         {
                 "input": ["CHECKIO"],
-            "answer": True
-        }
+            "answer": True,
+        },
     ],
     "Extra": [
         {
             "input": ["pAymlGNhBZZZZ"],
-            "answer": False
+            "answer": False,
         },
         {
             "input": ["JAqXyPYYJC"],
-            "answer": False
+            "answer": False,
         },
         {
             "input": ["OcmbBqzYmsdaahb"],
-            "answer": False
+            "answer": False,
         },{
             "input": ["zmyxetssdfhif"],
-            "answer": True
+            "answer": True,
         },
         {
             "input": ["ooooooooooooooo"],
-            "answer": True
+            "answer": True,
         },
         {
             "input": ["ooooooooooooooO"],
-            "answer": False
+            "answer": False,
         },
         {
             "input": ["Normal"],
-            "answer": True
+            "answer": True,
         },
         {
             "input": ["NORMALLL"],
-            "answer": True
+            "answer": True,
         },
         {
             "input": ["USA"],
-            "answer": True
+            "answer": True,
         },
         {
             "input": ["n"],
-            "answer": True
-        }
+            "answer": True,
+        },
     ]
 }
