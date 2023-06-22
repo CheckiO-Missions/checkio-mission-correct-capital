@@ -1,0 +1,121 @@
+<body data-author="freeman_lex">
+<div class="question-answer">
+    <div class="question">
+        Je n'ai aucune idée de la manière de commencer à résoudre cette mission.
+    </div>
+    <div class="answer">
+        <p>
+            💡 L'idée générale est de créer toutes les variantes du mot donné avec une utilisation correcte des cas et de vérifier si le mot actuel est égal à l'une de ces variantes correctes. Si <b class="code">line</b> fait partie des variantes correctes - retournez <b class="code">True</b>, sinon - <b class="code">False</b>.
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Ok, par quoi dois-je commencer?
+    </div>
+    <div class="answer">
+        <p>
+            D'après la description, nous disposons de trois variantes correctes de l'utilisation du cas correct. Ainsi, pour vérifier la présence d'une valeur donnée <b class="code">line</b> parmi d'autres valeurs, vous pouvez utiliser l'opérateur <a target="_blank" href="https://realpython.com/python-in-operator/#pythons-in-operator">in</a> directement dans votre déclaration <b class="code">return</b>.
+        </p>
+        <pre class="brush: python">
+return line in (...)
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Ok, comment créer des variantes correctes?
+    </div>
+    <div class="answer">
+        <p>
+            Le premier exemple d'utilisation correcte des majuscules est celui où toutes les lettres sont en majuscules. Vous devez convertir la donnée <b class="code">line</b> en majuscules avec <a target="_blank" href="https://www.w3schools.com/python/ref_string_upper.asp">Python string upper() method</a>. Cette méthode renvoie une nouvelle chaîne de caractères, que vous pouvez placer entre les parenthèses ci-dessus sans l'affecter à une variable.
+        </p>
+        <pre class="brush: python">
+return line in (line.upper(), ...)
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Comment poursuivre cette stratégie?
+    </div>
+    <div class="answer">
+        <p>
+            Le deuxième exemple de l'utilisation correcte des majuscules est celui où toutes les lettres sont minuscules. Faites la même chose que dans l'étape précédente, mais utilisez <a target="_blank" href="https://www.w3schools.com/python/ref_string_lower.asp">Python string lower() method</a>. Ajoutez le résultat entre parenthèses.
+        </p>
+        <pre class="brush: python">
+return line in (line.upper(), line.lower(), ...)
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Quelle méthode dois-je utiliser pour la dernière casse?
+    </div>
+    <div class="answer">
+        <p>
+            Le troisième exemple d'utilisation correcte des majuscules est celui où la première lettre est une majuscule. Python dispose également d'une méthode spécifique pour convertir une chaîne de caractères en majuscules uniquement - <a target="_blank" href="https://www.w3schools.com/python/ref_string_capitalize.asp">Python string capitalize() method</a>. Répétez l'algorithme connu.
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Alors, à quoi devrait ressembler ma solution finale?
+    </div>
+    <div class="answer">
+        <p>
+            Il vous suffit d'envelopper votre code dans une expression de fonction. Il est fortement recommandé d'utiliser des indices de type.
+        </p>
+        <p>Voici la solution complète:</p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def correct_capital(line: str) -> bool:
+    
+    return line in (line.upper(), line.lower(), line.capitalize())
+        </pre>
+        </div>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Montrez-moi d'autres solutions!<br />
+        parce que je veux être une vraie 🥇 Python Ninnjaa!
+    </div>
+    <div class="answer">
+        <p>Bien sûr, prenez-le!</p>
+        <p>
+            Dans cette solution, une fonction lambda (anonyme) est utilisée. De plus, au lieu de créer une nouvelle version correcte de <b class="code">line</b> et de la comparer au mot original, nous vérifions directement si le mot donné est dans l'une des formes correctes à l'aide des méthodes spécifiques qui renvoient une valeur booléenne.
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+correct_capital = lambda a: a.isupper() or a.islower() or a.istitle()
+        </pre>
+        </div>
+        <p>
+            À l'aide d'expressions régulières, nous créons un triple motif et le recherchons du début à la fin du mot <b class="code">line</b>. S'il est trouvé (le <b class="code">line</b> est entièrement égal au motif), la valeur booléenne est <b class="code">True</b>.
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+import re
+
+
+def correct_capital(line: str) -> bool:
+    
+    my_regex = r"[A-Z]{1}[a-z]+\b|[a-z]+\b|[A-Z]+\b"
+    result = re.match(my_regex, line)
+    
+    return bool(result)
+        </pre>
+        </div>
+        <p>Cliquez sur <b>Best Solutions</b> dans le menu mission et découvrez de nombreuses autres solutions intéressantes!</p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Merci beaucoup! Je sais et je comprends mieux maintenant! Tout fonctionne bien!
+    </div>
+    <div class="answer">
+        👍 Heureux de l'apprendre!
+    </div>
+</div>
+</body>
