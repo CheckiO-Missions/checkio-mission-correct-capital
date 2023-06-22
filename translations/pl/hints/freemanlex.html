@@ -1,0 +1,121 @@
+<body data-author="freeman_lex">
+<div class="question-answer">
+    <div class="question">
+        Nie mam pojęcia, jak zacząć rozwiązywać tę misję.
+    </div>
+    <div class="answer">
+        <p>
+            ogólna idea polega na utworzeniu wszystkich wariantów podanego słowa z poprawnym użyciem przypadków i sprawdzeniu, czy rzeczywiste słowo jest równe jednemu z tych poprawnych wariantów. Jeśli <b class="code">line</b> jest wśród poprawnych wariantów - proszę zwrócić <b class="code">True</b>, w przeciwnym razie - <b class="code">False</b>.
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Ok, od czego powinienem zacząć?
+    </div>
+    <div class="answer">
+        <p>
+            Zgodnie z opisem mamy trzy poprawne warianty poprawnego użycia przypadku. Aby więc sprawdzić obecność danej <b class="code">line</b> wśród innych wartości, można użyć operatora <a target="_blank" href="https://realpython.com/python-in-operator/#pythons-in-operator">in</a> bezpośrednio w instrukcji <b class="code">return</b>.
+        </p>
+        <pre class="brush: python">
+return line in (...)
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Ok, jak utworzyć poprawne warianty?
+    </div>
+    <div class="answer">
+        <p>
+            Pierwszym przykładem poprawnego użycia przypadków jest sytuacja, w której wszystkie litery są wielkie. Proszę przekonwertować podane <b class="code">line</b> na wielkie litery za pomocą <a target="_blank" href="https://www.w3schools.com/python/ref_string_upper.asp">Python string upper() method</a>. Metoda ta zwraca nowy ciąg znaków, który można umieścić w nawiasie powyżej bez przypisywania go do zmiennej.
+        </p>
+        <pre class="brush: python">
+return line in (line.upper(), ...)
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Jak kontynuować tę strategię?
+    </div>
+    <div class="answer">
+        <p>
+            Drugim przykładem poprawnego użycia przypadków jest sytuacja, w której wszystkie litery są małe. Proszę zrobić to samo, co w poprzednim kroku, ale używając <a target="_blank" href="https://www.w3schools.com/python/ref_string_lower.asp">Python string lower() method</a>. Proszę ponownie dodać wynik wewnątrz nawiasów.
+        </p>
+        <pre class="brush: python">
+return line in (line.upper(), line.lower(), ...)
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Jakiej metody powinienem użyć dla ostatniego przypadku?
+    </div>
+    <div class="answer">
+        <p>
+            Trzecim przykładem poprawnego użycia wielkości liter jest sytuacja, w której pierwsza litera jest wielka. Python posiada również specjalną metodę do konwersji ciągu znaków na taki, który zawiera tylko wielkie litery - <a target="_blank" href="https://www.w3schools.com/python/ref_string_capitalize.asp">Python string capitalize() method</a>. Proszę powtórzyć znany algorytm.
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Jak więc powinno wyglądać moje ostateczne rozwiązanie?
+    </div>
+    <div class="answer">
+        <p>
+            Proszę tylko opakować swój kod w wyrażenie funkcyjne. Zaleca się korzystanie z podpowiedzi typu.
+        </p>
+        <p>Oto całe rozwiązanie:</p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def correct_capital(line: str) -> bool:
+    
+    return line in (line.upper(), line.lower(), line.capitalize())
+        </pre>
+        </div>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Proszę pokazać mi więcej rozwiązań!<br />
+        bo chcę być prawdziwym 🥇 Python Ninnjaa!
+    </div>
+    <div class="answer">
+        <p>Jasne, proszę łapać!</p>
+        <p>
+            W tym rozwiązaniu użyto funkcji lambda (anonimowej). Ponadto, zamiast tworzyć nową poprawną wersję <b class="code">line</b> i porównywać ją z oryginalnym słowem, sprawdzamy bezpośrednio, czy dane słowo jest w jednej z poprawnych form za pomocą określonych metod, które zwracają wartość logiczną.
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+correct_capital = lambda a: a.isupper() or a.islower() or a.istitle()
+        </pre>
+        </div>
+        <p>
+            Za pomocą wyrażeń regularnych tworzymy potrójny wzorzec i przeszukujemy go od początku podanego <b class="code">line</b> do jego końca. Jeśli zostanie znaleziony ( <b class="code">line</b> jest w pełni równy wzorcowi) - wartością logiczną jest <b class="code">True</b>.
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+import re
+
+
+def correct_capital(line: str) -> bool:
+    
+    my_regex = r"[A-Z]{1}[a-z]+\b|[a-z]+\b|[A-Z]+\b"
+    result = re.match(my_regex, line)
+    
+    return bool(result)
+        </pre>
+        </div>
+        <p>Proszę kliknąć <b>Best Solutions</b> w menu misji i zobaczyć wiele innych ciekawych rozwiązań!</p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Dzięki! Teraz wiem i rozumiem więcej! Wszystko działa jak należy!
+    </div>
+    <div class="answer">
+        miło mi to słyszeć!
+    </div>
+</div>
+</body>
