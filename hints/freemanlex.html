@@ -1,0 +1,121 @@
+<body data-author="freeman_lex">
+<div class="question-answer">
+    <div class="question">
+        I have no idea how to start solving this mission.
+    </div>
+    <div class="answer">
+        <p>
+            💡 The general idea is to create all variants of the given word with correct use of cases and check if the actual word is equal one of these correct variants. If the <b class="code">line</b> is among correct variants - return <b class="code">True</b>, otherwise - <b class="code">False</b>.
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Ok, what should I start from?
+    </div>
+    <div class="answer">
+        <p>
+            According to the description, we have three correct variants of correct case using. So in order to check the presence of given <b class="code">line</b> among other values, you may use <a target="_blank" href="https://realpython.com/python-in-operator/#pythons-in-operator">in</a> operator directly in your <b class="code">return</b> statement.
+        </p>
+        <pre class="brush: python">
+return line in (...)
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Ok, how to create correct variants?
+    </div>
+    <div class="answer">
+        <p>
+            The first example of the correct use of cases is when all letters are uppercase. You need to convert the given <b class="code">line</b> into uppercase with <a target="_blank" href="https://www.w3schools.com/python/ref_string_upper.asp">Python string upper() method</a>. This method returns a new string, which yom may put inside parenthesis above without assigning it to variable.
+        </p>
+        <pre class="brush: python">
+return line in (line.upper(), ...)
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        How to proceed this strategy further?
+    </div>
+    <div class="answer">
+        <p>
+            The second example of the correct use of cases is when all letters are lowercase. Do the same like in the previous step, but use <a target="_blank" href="https://www.w3schools.com/python/ref_string_lower.asp">Python string lower() method</a>. Add the result inside parenthesis again.
+        </p>
+        <pre class="brush: python">
+return line in (line.upper(), line.lower(), ...)
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        What method should I use for the final case?
+    </div>
+    <div class="answer">
+        <p>
+            The third example of the correct use of cases is when the first letter is uppercase - capital letter. Python also has a specific method to convert a string into ones with capital letter uppercase only - <a target="_blank" href="https://www.w3schools.com/python/ref_string_capitalize.asp">Python string capitalize() method</a>. Repeat the known algorithm.
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        So, how my final solution should look like?
+    </div>
+    <div class="answer">
+        <p>
+            You just need to wrap your code into function expression. Type hints using is highly recommended.
+        </p>
+        <p>Here is the whole solution:</p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def correct_capital(line: str) -> bool:
+    
+    return line in (line.upper(), line.lower(), line.capitalize())
+        </pre>
+        </div>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Show me more solutions!<br />
+        'Cause I wanna be a real 🥇 Python Ninnjaa!
+    </div>
+    <div class="answer">
+        <p>Sure, grab it!</p>
+        <p>
+            In this solution a lambda (anonymous) function is used. Also, instead of creating a new correct version of <b class="code">line</b> and compare it to the original word, we check the given word directly to be in one of correct forms with the specific methods which return a boolean value.
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+correct_capital = lambda a: a.isupper() or a.islower() or a.istitle()
+        </pre>
+        </div>
+        <p>
+            Using regular expressions we create triple pattern and search it from the beginning of the given <b class="code">line</b> to its end . If it's founded (the <b class="code">line</b> is fully equal to the pattern) - the boolean value is <b class="code">True</b>.
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+import re
+
+
+def correct_capital(line: str) -> bool:
+    
+    my_regex = r"[A-Z]{1}[a-z]+\b|[a-z]+\b|[A-Z]+\b"
+    result = re.match(my_regex, line)
+    
+    return bool(result)
+        </pre>
+        </div>
+        <p>Click <b>Best Solutions</b> at mission menu and see a lot of other interesting solutions!</p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Thanks! I know and understand more now! Everything works fine!
+    </div>
+    <div class="answer">
+        👍 Glad to hear it!
+    </div>
+</div>
+</body>
