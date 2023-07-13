@@ -1,0 +1,121 @@
+<body data-author="freeman_lex">
+<div class="question-answer">
+    <div class="question">
+        我不知道如何开始解决这项任务。
+    </div>
+    <div class="answer">
+        <p>
+            💡一般的想法是创建给定单词的所有变体，并正确使用案例，并检查实际单词是否等于这些正确的变体之一。如果<b class="code">line</b> 属于正确的变体 - 返回<b class="code">True</b> ，否则 -<b class="code">False</b> 。
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        好吧，我应该从什么开始呢？
+    </div>
+    <div class="answer">
+        <p>
+            根据描述，我们有三种正确的大小写使用方法。因此，为了在其他值中检查给定的<b class="code">line</b> 是否存在，您可以在<b class="code">return</b> 语句中直接使用<a target="_blank" href="https://realpython.com/python-in-operator/#pythons-in-operator">in</a> 操作符。
+        </p>
+        <pre class="brush: python">
+return line in (...)
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        如何创建正确的变体？
+    </div>
+    <div class="answer">
+        <p>
+            第一个正确使用大小写的例子是当所有字母都是大写字母时。您需要使用<a target="_blank" href="https://www.w3schools.com/python/ref_string_upper.asp">Python string upper() method</a> 将给定的<b class="code">line</b> 转换为大写字母。这个方法返回一个新的字符串，你可以把它放在上面的括号中，而不用赋值给变量。
+        </p>
+        <pre class="brush: python">
+return line in (line.upper(), ...)
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        如何进一步执行此策略？
+    </div>
+    <div class="answer">
+        <p>
+            正确使用大小写的第二个例子是当所有字母都是小写时。与上一步相同，但使用<a target="_blank" href="https://www.w3schools.com/python/ref_string_lower.asp">Python string lower() method</a> 。将结果再次添加到括号内。
+        </p>
+        <pre class="brush: python">
+return line in (line.upper(), line.lower(), ...)
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        最后的大小写应该用什么方法？
+    </div>
+    <div class="answer">
+        <p>
+            第三个正确使用大小写的例子是当第一个字母是大写字母时。Python 也有一个特定的方法将字符串转换成大写字母 -<a target="_blank" href="https://www.w3schools.com/python/ref_string_capitalize.asp">Python string capitalize() method</a> 。重复已知的算法。
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        那么，我的最终解决方案应该是怎样的呢？
+    </div>
+    <div class="answer">
+        <p>
+            您只需将代码封装为函数表达式。强烈建议使用类型提示。
+        </p>
+        <p>以下是整个解决方案：</p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def correct_capital(line: str) -> bool:
+    
+    return line in (line.upper(), line.lower(), line.capitalize())
+        </pre>
+        </div>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        告诉我更多的解决方案！<br />
+        因为我想成为一个真正的🥇 Python Ninnjaa！
+    </div>
+    <div class="answer">
+        <p>当然，抓住它！</p>
+        <p>
+            在这个解决方案中，使用了 lambda（匿名）函数。此外，我们没有创建一个新的正确版本<b class="code">line</b> 并将其与原始单词进行比较，而是使用返回布尔值的特定方法直接检查给定单词是否为正确形式之一。
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+correct_capital = lambda a: a.isupper() or a.islower() or a.istitle()
+        </pre>
+        </div>
+        <p>
+            我们使用正则表达式创建三重模式，并从给定的<b class="code">line</b> 的开头到结尾进行搜索。如果成立（<b class="code">line</b> 与模式完全相等）--布尔值为<b class="code">True</b> 。
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+import re
+
+
+def correct_capital(line: str) -> bool:
+    
+    my_regex = r"[A-Z]{1}[a-z]+\b|[a-z]+\b|[A-Z]+\b"
+    result = re.match(my_regex, line)
+    
+    return bool(result)
+        </pre>
+        </div>
+        <p>点击任务菜单中的<b>Best Solutions</b> ，查看更多有趣的解决方案！</p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        谢谢！我现在知道并理解得更多了！一切正常！
+    </div>
+    <div class="answer">
+        很高兴听到这个消息！
+    </div>
+</div>
+</body>
