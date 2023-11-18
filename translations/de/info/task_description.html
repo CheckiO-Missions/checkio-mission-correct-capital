@@ -1,0 +1,24 @@
+<p>
+    Sie erhalten ein Wort, in dem die Buchstaben unterschiedlich groß sein können. Ihre Aufgabe ist es, zu überprüfen, ob die Groß- und Kleinschreibung in der Zeile korrekt verwendet wurde. Wenn alles richtig ist - geben Sie <b>{% if is_js %}t{% else %}T{% endif %}rue</b> zurück, wenn es Fehler gibt - geben Sie <b>{% if is_js %}f{% else %}F{% endif %}alse</b> zurück.
+</p>
+<p>
+    Beispiele für die korrekte Verwendung von Groß- und Kleinschreibung:
+</p>
+<p>
+    <li>Alle Zeichen in der Zeichenkette werden in Großbuchstaben geschrieben. Zum Beispiel: "CHECKIO";</li>
+    <li>Keines der Zeichen ist in Großbuchstaben. Zum Beispiel, "checkio";</li>
+    <li>Nur das erste Zeichen ist in Großbuchstaben. Zum Beispiel, "Checkio".</li>
+</p>
+<p>
+   <strong>Eingabe:</strong> Zeichenkette <span>(str{% if is_js %}ing{% endif %})</span>.
+
+<p>
+   <strong>Ausgabe:</strong> Logischer Wert <span>(bool{% if is_js %}ean{% endif %})</span>.
+</p>
+
+<div class="for_info_only">
+    <p>
+        <strong>Beispiele:</strong>
+    </p>
+<pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
+</div>

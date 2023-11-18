@@ -1,0 +1,121 @@
+<body data-author="freeman_lex">
+<div class="question-answer">
+    <div class="question">
+        Ich habe keine Ahnung, wie ich mit der Lösung dieser Aufgabe beginnen soll.
+    </div>
+    <div class="answer">
+        <p>
+            💡 Die allgemeine Idee ist, alle Varianten des gegebenen Wortes mit korrekter Verwendung der Groß- und Kleinschreibung zu erstellen und zu prüfen, ob das eigentliche Wort mit einer dieser korrekten Varianten übereinstimmt. Wenn <b class="code">line</b> zu den korrekten Varianten gehört - geben Sie <b class="code">True</b> zurück, andernfalls - <b class="code">False</b>.
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Ok, womit soll ich anfangen?
+    </div>
+    <div class="answer">
+        <p>
+            Gemäß der Beschreibung haben wir drei korrekte Varianten der korrekten Verwendung von case. Um also das Vorhandensein eines bestimmten <b class="code">line</b> unter anderen Werten zu überprüfen, können Sie den <a target="_blank" href="https://realpython.com/python-in-operator/#pythons-in-operator">in</a> Operator direkt in Ihrer <b class="code">return</b> Anweisung verwenden.
+        </p>
+        <pre class="brush: python">
+return line in (...)
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Ok, wie erstellt man korrekte Varianten?
+    </div>
+    <div class="answer">
+        <p>
+            Das erste Beispiel für die korrekte Verwendung von Großbuchstaben ist, wenn alle Buchstaben in Großbuchstaben geschrieben werden. Sie müssen die angegebene <b class="code">line</b> mit <a target="_blank" href="https://www.w3schools.com/python/ref_string_upper.asp">Python string upper() method</a> in Großbuchstaben umwandeln. Diese Methode gibt einen neuen String zurück, den Sie oben in Klammern setzen können, ohne ihn einer Variablen zuzuweisen.
+        </p>
+        <pre class="brush: python">
+return line in (line.upper(), ...)
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Wie können Sie diese Strategie weiterverfolgen?
+    </div>
+    <div class="answer">
+        <p>
+            Das zweite Beispiel für die korrekte Verwendung von Großbuchstaben ist, wenn alle Buchstaben klein geschrieben sind. Machen Sie dasselbe wie im vorherigen Schritt, aber verwenden Sie <a target="_blank" href="https://www.w3schools.com/python/ref_string_lower.asp">Python string lower() method</a>. Fügen Sie das Ergebnis wieder in Klammern ein.
+        </p>
+        <pre class="brush: python">
+return line in (line.upper(), line.lower(), ...)
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Welche Methode sollte ich für den letzten Fall verwenden?
+    </div>
+    <div class="answer">
+        <p>
+            Das dritte Beispiel für die korrekte Verwendung von Großbuchstaben ist, wenn der erste Buchstabe ein Großbuchstabe ist - Großbuchstabe. Auch Python verfügt über eine spezielle Methode, um eine Zeichenkette nur in solche mit Großbuchstaben umzuwandeln - <a target="_blank" href="https://www.w3schools.com/python/ref_string_capitalize.asp">Python string capitalize() method</a>. Wiederholen Sie den bekannten Algorithmus.
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Wie sollte also meine endgültige Lösung aussehen?
+    </div>
+    <div class="answer">
+        <p>
+            Sie müssen Ihren Code einfach in einen Funktionsausdruck einpacken. Die Verwendung von Type Hints ist sehr empfehlenswert.
+        </p>
+        <p>Hier ist die gesamte Lösung:</p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def correct_capital(line: str) -> bool:
+    
+    return line in (line.upper(), line.lower(), line.capitalize())
+        </pre>
+        </div>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Zeigen Sie mir mehr Lösungen!<br />
+        denn ich möchte ein echter 🥇 Python Ninnjaa sein!
+    </div>
+    <div class="answer">
+        <p>Klar, schnapp sie dir!</p>
+        <p>
+            In dieser Lösung wird eine lambda (anonyme) Funktion verwendet. Anstatt eine neue korrekte Version von <b class="code">line</b> zu erstellen und sie mit dem ursprünglichen Wort zu vergleichen, überprüfen wir das gegebene Wort direkt auf eine der korrekten Formen mit den spezifischen Methoden, die einen booleschen Wert zurückgeben.
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+correct_capital = lambda a: a.isupper() or a.islower() or a.istitle()
+        </pre>
+        </div>
+        <p>
+            Mit regulären Ausdrücken erstellen wir ein dreifaches Muster und suchen es vom Anfang des angegebenen <b class="code">line</b> bis zu seinem Ende. Wenn es gefunden wird ( <b class="code">line</b> entspricht vollständig dem Muster), lautet der boolesche Wert <b class="code">True</b>.
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+import re
+
+
+def correct_capital(line: str) -> bool:
+    
+    my_regex = r"[A-Z]{1}[a-z]+\b|[a-z]+\b|[A-Z]+\b"
+    result = re.match(my_regex, line)
+    
+    return bool(result)
+        </pre>
+        </div>
+        <p>Klicken Sie im Missionsmenü auf <b>Best Solutions</b> und sehen Sie sich viele weitere interessante Lösungen an!</p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Vielen Dank! Ich weiß und verstehe jetzt mehr! Alles funktioniert bestens!
+    </div>
+    <div class="answer">
+        👍 Freut mich zu hören!
+    </div>
+</div>
+</body>
